@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate 4-Digit Number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+        }
+        input, button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<h2>4-Digit Number Validator</h2>
+
+<form id="numberForm" onsubmit="return validateNumber()">
+    <label for="numberInput">Enter a 4-digit number:</label>
+    <input type="text" id="numberInput" name="numberInput" maxlength="4" required>
+    <button type="submit">Validate</button>
+
+    <div id="statusMessage"></div>
+</form>
+
+<script src="scripts.js"></script> <!-- Link to the external JS file -->
+</body>
+</html>

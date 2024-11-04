@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: auto;
+        }
+        .gallery img {
+            display: none; /* Initially hidden */
+            max-width: 100%;
+            height: auto;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .image-container {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Design Portfolio</h2>
+<p>Click on a button to view and animate an image:</p>
+
+<div class="gallery">
+    <div class="image-container">
+        <button class="showImage" data-target="#image1">Show Image 1</button>
+        <img id="image1" src="images/image1.jpg" alt="Design Image 1">
+    </div>
+    <div class="image-container">
+        <button class="showImage" data-target="#image2">Show Image 2</button>
+        <img id="image2" src="images/image2.jpg" alt="Design Image 2">
+    </div>
+    <div class="image-container">
+        <button class="showImage" data-target="#image3">Show Image 3</button>
+        <img id="image3" src="images/image3.jpg" alt="Design Image 3">
+    </div>
+</div>
+
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Handle the click event on buttons
+        $('.showImage').click(function() {
+            var targetImage = $(this).data('target');
+            $(targetImage).css({
+                width: '50%', // Start with smaller size
+                opacity: 0 // Initially invisible
+            }).show().animate({
+                width: '100%', // Grow to full size
+                opacity: 1 // Fade in effect
+            }, 2000); // 2-second animation
+        });
+    });
+</script>
+
+</body>
+</html>

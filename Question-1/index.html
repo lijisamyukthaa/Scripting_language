@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration System</title>
+    <link rel="stylesheet" href="style.css"> <!-- Optional for adding CSS styles -->
+</head>
+<body>
+
+<h2>Course Registration System</h2>
+
+<form id="registrationForm" onsubmit="return validateForm()">
+    <label for="studentName">Student Name:</label>
+    <input type="text" id="studentName" name="studentName" required>
+
+    <label for="studentId">Student ID:</label>
+    <input type="text" id="studentId" name="studentId" required>
+
+    <label for="courseSelect">Select Course:</label>
+    <select id="courseSelect" name="courseSelect" required onchange="checkPrerequisites()">
+        <option value="">-- Select a Course --</option>
+        <option value="101" data-seats="5" data-prerequisite="none">Course 101 - No Prerequisite (5 Seats)</option>
+        <option value="102" data-seats="2" data-prerequisite="101">Course 102 - Prerequisite: Course 101 (2 Seats)</option>
+        <option value="103" data-seats="0" data-prerequisite="102">Course 103 - Prerequisite: Course 102 (0 Seats)</option>
+    </select>
+
+    <div id="prerequisiteMessage" class="error"></div>
+
+    <label for="availableSeats">Available Seats:</label>
+    <input type="text" id="availableSeats" name="availableSeats" readonly>
+
+    <button type="submit">Register</button>
+
+    <div id="statusMessage"></div>
+</form>
+
+<script src="scripts.js"></script> <!-- Link to external JavaScript file -->
+</body>
+</html>
